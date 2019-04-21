@@ -1,5 +1,6 @@
 import _ from "lodash";
 import "./index.css";
+import "./index.less";
 
 function component() {
   let element = document.createElement("div");
