@@ -14,7 +14,17 @@ module.exports = {
     filename: "[name].[contenthash].bundle.js"
   },
   module: {
-    rules: [{ test: /\.txt$/, use: "raw-loader" }]
+    rules: [
+      { test: /\.txt$/, use: "raw-loader" },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
