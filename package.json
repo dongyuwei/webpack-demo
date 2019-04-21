@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm run build-commonjs-module && npm run build-es2015-module",
     "build-commonjs-module": "webpack-cli --mode development --entry ./src/entry-foo.js --output ./build/entry-foo.build.js",
-    "build-es2015-module": "webpack-cli --mode development --entry ./src/entry-foo-es2015-module.js --output ./build/entry-foo-es2015-module.build.js"
+    "build-es2015-module": "webpack-cli --mode development --entry ./src/entry-foo-es2015-module.js --output ./build/entry-foo-es2015-module.build.js",
+    "build-with-config": "webpack-cli --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
