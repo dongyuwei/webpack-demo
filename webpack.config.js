@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: {
@@ -13,6 +15,13 @@ module.exports = {
   module: {
     rules: [{ test: /\.txt$/, use: "raw-loader" }]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      inject: "body",
+      chunks: ["foo"]
+    })
+  ],
   optimization: {
     minimize: false
   }
