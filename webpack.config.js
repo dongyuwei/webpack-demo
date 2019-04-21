@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
+  devServer: {
+    contentBase: "./dist"
+  },
   entry: {
     index: "./src/index.js",
     foo: "./src/entry-foo.js",
