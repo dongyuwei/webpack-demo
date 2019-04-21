@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "webpack-cli --config webpack.config.js",
     "build2": "npm run build-commonjs-module && npm run build-es2015-module",
@@ -17,5 +18,8 @@
     "raw-loader": "^2.0.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   }
 }

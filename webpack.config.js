@@ -4,6 +4,7 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: {
+    index: "./src/index.js",
     foo: "./src/entry-foo.js",
     foo2015: "./src/entry-foo-es2015-module.js",
     "loader-demo": "./src/entry.loader.demo.js"
@@ -19,7 +20,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       inject: "body",
-      chunks: ["foo"]
+      chunks: ["index"]
     })
   ],
   mode: "development"
