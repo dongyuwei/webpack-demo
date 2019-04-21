@@ -22,7 +22,5 @@ module.exports = {
       chunks: ["foo"]
     })
   ],
-  optimization: {
-    minimize: false
-  }
+  mode: "development"
 };
