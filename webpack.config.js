@@ -21,7 +21,7 @@ module.exports = {
       { test: /\.txt$/, use: "raw-loader" },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [ "style-loader", "css-loader?sourceMap"]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
