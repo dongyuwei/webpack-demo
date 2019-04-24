@@ -1,13 +1,13 @@
 import _ from "lodash";
-import "./index.less";
+import $ from "jquery";
+import style from "./index.less";
+console.log("====================================");
+console.log(style);
+console.log("====================================");
 
-function component() {
-  let element = document.createElement("div");
-
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
-
-  return element;
+function render() {
+  const element = $(`<div class=${style.foo}></div>`);
+  element.text(_.join(["Hello", "webpack"], " ")).appendTo(document.body);
 }
 
-document.body.appendChild(component());
+render();

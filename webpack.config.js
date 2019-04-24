@@ -29,7 +29,8 @@ module.exports = {
           {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
-              sourceMap: true
+              sourceMap: true,
+              modules: true
             }
           },
           {
