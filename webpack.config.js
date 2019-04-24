@@ -3,15 +3,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-  devServer: {
-    contentBase: "./dist"
-  },
   entry: {
     index: "./src/index.js"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].bundle.js"
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
   },
   module: {
     rules: [
@@ -30,7 +32,7 @@ module.exports = {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
               sourceMap: true,
-              modules: true
+              modules: "local" // css module
             }
           },
           {
@@ -45,9 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      inject: "body",
-      chunks: ["index"]
+      template: "./src/index.html"
     })
   ],
   mode: "development"
