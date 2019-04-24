@@ -2,17 +2,17 @@ import _ from "lodash";
 import $ from "jquery";
 import style from "./index.less";
 import icon from "./icon.svg";
-import { cube } from "./math.js";
+// import math from "./math.js";
 
-console.log("====================================");
-console.log(style, icon);
-console.log("====================================");
-
-function render() {
+async function render() {
   const element = $(`<div class=${style.foo}></div>`);
+  const math = await import(/* webpackChunkName: "math" */ "./math.js");
   element
     .html(
-      _.join(["Hello", "webpack", "5 cubed is equal to " + cube(5)], "<br>")
+      _.join(
+        ["Hello", "webpack", "5 cubed is equal to " + math.cube(5)],
+        "<br>"
+      )
     )
     .appendTo(document.body);
 
