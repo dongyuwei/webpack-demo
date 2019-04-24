@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack-cli --config webpack.config.js",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --config webpack.config.js --watch --open"
+    "start": "nodemon --watch webpack.config.js --exec 'webpack-dev-server --config webpack.config.js --watch'"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "jquery": "^3.4.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "nodemon": "^1.18.11",
     "raw-loader": "^2.0.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0",
