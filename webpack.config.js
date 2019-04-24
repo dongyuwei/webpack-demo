@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = env => {
-  console.log("===========env=========", env);
-
   return {
     entry: {
       index: "./src/index.js"
@@ -13,10 +11,12 @@ module.exports = env => {
       path: path.resolve(__dirname, "dist"),
       filename: "[name].[contenthash].bundle.js"
     },
+    mode: env.mode,
     optimization: {
       splitChunks: {
         chunks: "all"
-      }
+      },
+      usedExports: true
     },
     module: {
       rules: [
@@ -27,19 +27,18 @@ module.exports = env => {
         {
           test: /\.less$/,
           use: [
-            //当配置多个loader时，loader的执行顺序时从右往左，右边的执行结果作为参数传到左边
             {
-              loader: "style-loader" // creates style nodes from JS strings
+              loader: "style-loader"
             },
             {
-              loader: "css-loader", // translates CSS into CommonJS
+              loader: "css-loader",
               options: {
                 sourceMap: true,
                 modules: "local" // css module
               }
             },
             {
-              loader: "less-loader", // compiles Less to CSS
+              loader: "less-loader",
               options: {
                 sourceMap: true
               }
@@ -52,7 +51,6 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         template: "./src/index.html"
       })
-    ],
-    mode: env.mode
+    ]
   };
 };
