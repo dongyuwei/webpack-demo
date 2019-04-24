@@ -6,6 +6,7 @@ import icon from "./icon.svg";
 
 async function render() {
   const element = $(`<div class=${style.foo}></div>`);
+  // const math = require( "./math.js" );
   const math = await import(/* webpackChunkName: "math" */ "./math.js");
   element
     .html(
