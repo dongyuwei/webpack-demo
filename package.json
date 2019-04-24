@@ -7,10 +7,7 @@
   "scripts": {
     "build": "webpack-cli --config webpack.config.js",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "build2": "npm run build-commonjs-module && npm run build-es2015-module",
-    "build-commonjs-module": "webpack-cli --mode development --entry ./src/entry-foo.js --output ./build/entry-foo.build.js",
-    "build-es2015-module": "webpack-cli --mode development --entry ./src/entry-foo-es2015-module.js --output ./build/entry-foo-es2015-module.build.js"
+    "start": "webpack-dev-server --watch --open"
   },
   "keywords": [],
   "author": "",

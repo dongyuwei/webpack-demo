@@ -7,10 +7,7 @@ module.exports = {
     contentBase: "./dist"
   },
   entry: {
-    index: "./src/index.js",
-    foo: "./src/entry-foo.js",
-    foo2015: "./src/entry-foo-es2015-module.js",
-    "loader-demo": "./src/entry.loader.demo.js"
+    index: "./src/index.js"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -18,11 +15,6 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.txt$/, use: "raw-loader" },
-      {
-        test: /\.css$/,
-        use: [ "style-loader", "css-loader?sourceMap"]
-      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"]
