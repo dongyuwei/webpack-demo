@@ -4,12 +4,15 @@ const webpack = require("webpack");
 
 module.exports = env => {
   return {
+    devServer: {
+      hot: true
+    },
     entry: {
       index: "./src/index.js"
     },
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "[name].[contenthash].bundle.js"
+      filename: "[name].[hash].bundle.js"
     },
     mode: env.mode,
     optimization: {
@@ -50,7 +53,8 @@ module.exports = env => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/index.html"
-      })
+      }),
+      new webpack.HotModuleReplacementPlugin()
     ]
   };
 };

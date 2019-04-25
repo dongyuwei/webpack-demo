@@ -2,10 +2,11 @@ import _ from "lodash";
 import $ from "jquery";
 import style from "./index.less";
 import icon from "./icon.svg";
+import printMe from "./print.js";
 // import math from "./math.js";
 
 async function render() {
-  const element = $(`<div class=${style.foo}></div>`);
+  const element = $(`<div id="test" class=${style.foo}></div>`);
   // const math = require( "./math.js" );
   const math = await import(/* webpackChunkName: "math" */ "./math.js");
   element
@@ -16,6 +17,7 @@ async function render() {
       )
     )
     .appendTo(document.body);
+  element.on("click", printMe);
 
   const img = new Image();
   img.src = icon;
@@ -23,3 +25,12 @@ async function render() {
 }
 
 render();
+
+if (module.hot) {
+  module.hot.accept("./print.js", function() {
+    console.log("Accepting the updated printMe module!");
+    $("#test")
+      .off()
+      .on("click", printMe);
+  });
+}
